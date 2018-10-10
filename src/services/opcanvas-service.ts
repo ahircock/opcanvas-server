@@ -10,7 +10,7 @@ export async function getOpCanvasById( id: string ): Promise<any> {
 }
 
 export async function getOpCanvasAll(): Promise<any[]> {
-  const mongoClient = new mongodb.MongoClient('mongodb://localhost:27017');
+  const mongoClient = new mongodb.MongoClient('mongodb://172.27.188.96:27017');
   console.log('client created')
   await mongoClient.connect();
   console.log('connected')
