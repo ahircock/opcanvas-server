@@ -18,6 +18,7 @@
   "homepage": "https://github.com/ahircock/opcanvas-server#readme",
   "dependencies": {
     "express": "^4.16.3",
-    "mongodb": "^3.1.7"
+    "mongodb": "^3.1.7",
+    "nodemon": "^1.18.4"
   }
 }
