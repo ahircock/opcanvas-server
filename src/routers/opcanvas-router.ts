@@ -12,7 +12,6 @@ export class OpCanvasRouter {
   }
 
   async getAllHandler(req: Request, res: Response) {
-    console.log(this);
     let returnAll: any[] = await this.service.getOpCanvasAll();
     res.send(returnAll);
   }
