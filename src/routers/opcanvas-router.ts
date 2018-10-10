@@ -5,11 +5,16 @@ import * as opCanvasService from '../services/opcanvas-service';
 const router: Router = Router();
 
 // map the URLs to the handlers
+router.get('/opcanvas', getAllHandler );
 router.get('/opcanvas/:opcanvasid', getHandler );
 router.post('/opcanvas', postHandler );
 
+async function getAllHandler( req: Request, res: Response ) {
+  let returnAll: any[] = await opCanvasService.getOpCanvasAll();
+  res.send(returnAll);
+}
 
-function getHandler( req: Request, res: Response ) {
+async function getHandler( req: Request, res: Response ) {
   res.send( opCanvasService.getOpCanvasById(req.params.opcanvasid) )
 }
 
