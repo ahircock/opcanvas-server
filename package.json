@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "compile": "tsc && node dist/server",
+    "dev": "nodemon -e ts  --exec \"npm run compile\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
