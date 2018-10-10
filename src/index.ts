@@ -1,9 +1,10 @@
 import * as express from 'express';
+import * as cors from 'cors'; // HTTP cross-origin resource sharing for API
 import opCanvasRouter from './routers/opcanvas-router';
 
 let expressApp = express();
 
-// respond with "hello world" when a GET request is made to the homepage
+expressApp.use("/api", cors({origin:true, credentials:true})); // allows access to API endpoints from any site
 expressApp.use('/api', opCanvasRouter);
 
 expressApp.listen(5000, (err) => {
