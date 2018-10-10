@@ -1,26 +1,28 @@
 import { Router, Request, Response } from 'express';
-import * as opCanvasService from '../services/opcanvas-service';
+import { OpCanvasService } from '../services/opcanvas-service';
 
-// create an express router
-const router: Router = Router();
+export class OpCanvasRouter {
+  router: Router;
 
-// map the URLs to the handlers
-router.get('/opcanvas', getAllHandler );
-router.get('/opcanvas/:opcanvasid', getHandler );
-router.post('/opcanvas', postHandler );
+  constructor(public service: OpCanvasService) {
+    this.router = Router();
+    this.router.get('/opcanvas', (req, res) => this.getAllHandler(req,res));
+    this.router.get('/opcanvas/:opcanvasid', (req, res) => this.getHandler(req,res));
+    this.router.post('/opcanvas', (req, res) => this.postHandler(req,res));
+  }
 
-async function getAllHandler( req: Request, res: Response ) {
-  let returnAll: any[] = await opCanvasService.getOpCanvasAll();
-  res.send(returnAll);
+  async getAllHandler(req: Request, res: Response) {
+    console.log(this);
+    let returnAll: any[] = await this.service.getOpCanvasAll();
+    res.send(returnAll);
+  }
+
+  async getHandler(req: Request, res: Response) {
+    let canvas : any = await this.service.getOpCanvasById(req.params.opcanvasid);
+    res.send(canvas)
+  }
+
+  async postHandler(req: Request, res: Response) {
+    res.send('The POST was received')
+  }
 }
-
-async function getHandler( req: Request, res: Response ) {
-  res.send( opCanvasService.getOpCanvasById(req.params.opcanvasid) )
-}
-
-function postHandler( req: Request, res: Response ) {
-  res.send('The POST was received')
-}
-
-// export the router
-export default router;
