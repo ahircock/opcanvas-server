@@ -12,5 +12,5 @@ export function getOpCanvasById( id: string ): any {
  * @return the ID of the newly created opcanvas
  */
 export function createOpCanvas( opCanvas: any ) : string {
-  return '';
+  return 'new-opcanvas-id';
 }

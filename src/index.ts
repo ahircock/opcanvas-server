@@ -1,5 +1,5 @@
 import * as express from 'express';
-import opCanvasRouter from './routers/api-opcanvas';
+import opCanvasRouter from './routers/opcanvas-router';
 
 let expressApp = express();
 

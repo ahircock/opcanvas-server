@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import * as opCanvasService from '../services/opcanvas';
+import * as opCanvasService from '../services/opcanvas-service';
 
 // create an express router
 const router: Router = Router();
